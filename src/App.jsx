@@ -276,9 +276,9 @@ function App() {
   // Cart item count for Nav
   const cartItemCount = cart.reduce((sum, item) => sum + item.qty, 0);
 
-  return (
+ return (
     <>
-      <Nav allFoods={allFoods} cartItemCount={cartItemCount} />
+      <Nav allFoods={allFoods} cartItemCount={cartItemCount} addToCart={addToCart} />
       <main>
         <Routes>
           <Route path="/" element={<HomePage allFoods={allFoods} addToCart={addToCart} />} />
@@ -291,11 +291,9 @@ function App() {
           } />
           <Route path="/food/:name" element={<FoodDetail allFoods={allFoods} addToCart={addToCart} />} />
           <Route path="/delivery" element={
-            <>
-              <DeliveryDetails
-                cart={cart}
-              />
-            </>
+            <DeliveryDetails
+              cart={cart}
+            />
           } />
           <Route path="/login" element={<LoginPage />} />
         </Routes>

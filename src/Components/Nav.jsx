@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Flame, MapPin, Search, ShoppingCart, Menu, X, LogIn } from 'lucide-react';
 import './Nav.css';
 
-const Nav = ({ allFoods, cartItemCount }) => {
+const Nav = ({ allFoods, cartItemCount, addToCart }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [search, setSearch] = useState('');
     const [result, setResult] = useState(null);
@@ -62,7 +62,6 @@ const Nav = ({ allFoods, cartItemCount }) => {
                         <ShoppingCart height="24" width="24" />
                         {cartItemCount > 0 && <span className="cart-badge">{cartItemCount}</span>}
                     </Link>
-                    {/* Removed profile icon */}
                     {/* Mobile Menu Button */}
                     <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="mobile-menu-button">
                         {isMenuOpen ? <X height="24" width="24" /> : <Menu height="24" width="24" />}
@@ -76,13 +75,30 @@ const Nav = ({ allFoods, cartItemCount }) => {
                     {result === 'notfound' ? (
                         <span>Item not available</span>
                     ) : result ? (
-                        <Link
-                            to={`/food/${encodeURIComponent(result.name)}`}
-                            style={{ textDecoration: 'none', color: '#333', fontWeight: 500 }}
-                        >
-                            <img src={result.img} alt={result.name} style={{ height: 40, verticalAlign: "middle", marginRight: 8 }} />
-                            {result.name} - {result.price}
-                        </Link>
+                        <div style={{ display: "inline-flex", alignItems: "center", gap: "12px" }}>
+                            <Link
+                                to={`/food/${encodeURIComponent(result.name)}`}
+                                style={{ textDecoration: 'none', color: '#333', fontWeight: 500 }}
+                            >
+                                <img src={result.img} alt={result.name} style={{ height: 40, verticalAlign: "middle", marginRight: 8 }} />
+                                {result.name} - {result.price}
+                            </Link>
+                            <button
+                                style={{
+                                    background: "#ff8800",
+                                    color: "#fff",
+                                    border: "none",
+                                    borderRadius: "8px",
+                                    padding: "6px 16px",
+                                    fontWeight: 600,
+                                    cursor: "pointer",
+                                    fontSize: "1rem"
+                                }}
+                                onClick={() => addToCart(result)}
+                            >
+                                Add to Cart
+                            </button>
+                        </div>
                     ) : null}
                 </div>
             )}
