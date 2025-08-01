@@ -295,7 +295,7 @@ const HomePage = ({ addToCart }) => {
           alignItems: "center"
         }}>
           <h1 style={{ fontSize: "3.5rem", fontWeight: 800, fontStyle: "italic", marginBottom: "0.5rem" }}>
-            FoodFleet
+            FlavourFlow 
           </h1>
           <h2 style={{ fontSize: "2.5rem", fontWeight: 700, marginBottom: "1.5rem" }}>
             Food Delivery App
