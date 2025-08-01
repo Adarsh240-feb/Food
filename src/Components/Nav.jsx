@@ -28,7 +28,7 @@ const Nav = ({ allFoods, cartItemCount, addToCart }) => {
                 <div className="navbar-left">
                     <Link to="/" className="navbar-logo">
                         <Flame className="navbar-logo-icon" />
-                        <span className="navbar-logo-text">FoodFleet</span>
+                        <span className="navbar-logo-text">FlavourFlow</span>
                     </Link>
                     {/* Login link next to logo */}
                     <Link to="/login" className="icon-link login-link" style={{ marginLeft: "18px", display: "flex", alignItems: "center", color: "#ff8800", fontWeight: 600 }}>
