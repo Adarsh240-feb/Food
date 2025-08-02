@@ -1,15 +1,12 @@
-
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
-import { BrowserRouter } from 'react-router-dom' // <-- 1. IMPORT THIS
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App.jsx';
+import { HashRouter } from 'react-router-dom';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    {/* 2. ADD THE BROWSER ROUTER WRAPPER AND BASENAME PROP  */}
-    <BrowserRouter basename="/Food">
+    <HashRouter>
       <App />
-    </BrowserRouter>
-  </React.StrictMode>,
-)
+    </HashRouter>
+  </React.StrictMode>
+);
