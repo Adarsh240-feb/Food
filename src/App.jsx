@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Nav from './Components/Nav.jsx';
 import HomePage from './Pages/HomePage.jsx';
 import CartPage from './Pages/CartPage.jsx';
@@ -7,6 +7,8 @@ import FoodDetail from './Pages/FoodDetailsPage';
 import DeliveryDetails from './Pages/DeliveryDetails.jsx';
 import './App.css';
 import LoginPage from './Pages/LoginPage.jsx';
+
+// ...existing food arrays...
 const northIndianFoods = [
   {
     name: "Butter Chicken",
@@ -276,8 +278,8 @@ function App() {
   // Cart item count for Nav
   const cartItemCount = cart.reduce((sum, item) => sum + item.qty, 0);
 
- return (
-    <>
+  return (
+    <HashRouter>
       <Nav allFoods={allFoods} cartItemCount={cartItemCount} addToCart={addToCart} />
       <main>
         <Routes>
@@ -298,7 +300,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
         </Routes>
       </main>
-    </>
+    </HashRouter>
   );
 }
 
